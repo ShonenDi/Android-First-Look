@@ -4,17 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F8FF"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#F0F8FF	">
 
-    <view
-        android:layout_width="3dp"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray">
-
-    </view>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,8 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
                 android:onClick="addThreePointTeamA"
                 android:text="+3 points" />
 
@@ -64,8 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="24dp"
                 android:onClick="addTwoPointTeamA"
                 android:text="+2 points" />
 
@@ -73,8 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="24dp"
                 android:onClick="addOnePointTeamA"
                 android:text="Free throw" />
 
@@ -116,8 +108,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
                 android:onClick="addThreePointTeamB"
                 android:text="+3 points" />
 
@@ -126,8 +118,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="24dp"
                 android:onClick="addTwoPointTeamB"
                 android:text="+2 points" />
 
@@ -135,11 +127,11 @@
                 android:id="@+id/free_throw_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="addOnePointTeamB"
-                android:text="Free throw"
                 android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="24dp"
-                android:layout_marginTop="8dp"/>
+                android:onClick="addOnePointTeamB"
+                android:text="Free throw" />
 
         </LinearLayout>
 
@@ -151,7 +143,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
+        android:layout_marginBottom="32dp"
         android:onClick="resetBothTeamsScore"
-        android:text="reset"
-        android:layout_marginBottom="32dp"></Button>
+        android:text="reset"></Button>
+
+    <View
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        ></View>
+
 </RelativeLayout>
