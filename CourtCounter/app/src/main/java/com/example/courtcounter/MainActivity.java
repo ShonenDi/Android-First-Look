@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    int score = 0;
+    int scoreTeamA = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the given score for Team A.
+     * Displays the given scoreTeamA for Team A.
      */
     public void displayForTeamA(int score) {
         TextView scoreView = (TextView) findViewById(R.id.team_a_score);
@@ -24,26 +24,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * change value of score variable to 3 when put on 3 point button
+     * change value of scoreTeamA variable to 3 when put on 3 point button
      */
     public void addThreePoint(View view) {
-        score = score + 3;
-        displayForTeamA(score);
+        scoreTeamA = scoreTeamA + 3;
+        displayForTeamA(scoreTeamA);
     }
 
     /**
-     * change value of score variable to 2 when put on 2 point button
+     * change value of scoreTeamA variable to 2 when put on 2 point button
      */
     public void addTwoPoint(View view) {
-        score = score + 2;
-        displayForTeamA(score);
+        scoreTeamA = scoreTeamA + 2;
+        displayForTeamA(scoreTeamA);
     }
 
     /**
-     * change value of score variable to 1 when put on Free throw button
+     * change value of scoreTeamA variable to 1 when put on Free throw button
      */
     public void addOnePoint(View view) {
-        score = score + 1;
-        displayForTeamA(score);
+        scoreTeamA = scoreTeamA + 1;
+        displayForTeamA(scoreTeamA);
+    }
+
+    public void refreshteamAPoints(View view) {
+        scoreTeamA = 0;
+        displayForTeamA(scoreTeamA);
     }
 }

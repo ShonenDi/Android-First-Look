@@ -47,6 +47,13 @@
         android:id="@+id/free_throw_button"
         android:onClick="addOnePoint"
         android:text="Free throw"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:id="@+id/free_cancel_button"
+        android:onClick="refreshteamAPoints"
+        android:text="Cancel"/>
 
 
 
