@@ -56,12 +56,7 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamA(scoreTeamA);
     }
 
-    public void refreshTeamAPoints(View view) {
-        scoreTeamA = 0;
-        displayForTeamA(scoreTeamA);
-    }
-
-    /**
+     /**
      * change value of scoreTeamB variable to 3 when put on 3 point button
      */
     public void addThreePointTeamB(View view) {
@@ -85,9 +80,11 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamB(scoreTeamB);
     }
 
-    public void refreshTeamBPoints(View view) {
+    public void resetBothTeamsScore(View view) {
         scoreTeamB = 0;
+        scoreTeamA = 0;
         displayForTeamB(scoreTeamB);
+        displayForTeamA(scoreTeamA);
     }
 
 
