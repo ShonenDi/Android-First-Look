@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = quantity * 5;
+        int price = calculatePrice();
         String priceMassage = "Total: $" + price + "\nThank you!";
         displayMessage(priceMassage);
     }
@@ -35,21 +35,32 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view) {
         quantity = quantity + 1;
-        display(quantity);
+        displayQuantity(quantity);
     }
+
+    /**
+     * This's method calculate total price of order
+     * @return data type int, total price of order
+     */
+    public int calculatePrice() {
+        int pricePerCup = 5;
+        return (quantity*pricePerCup);
+    }
+
+
 
     /**
      * This method is called when the minus button is clicked.
      */
     public void decrement(View view) {
         quantity = quantity - 1;
-        display(quantity);
+        displayQuantity(quantity);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
