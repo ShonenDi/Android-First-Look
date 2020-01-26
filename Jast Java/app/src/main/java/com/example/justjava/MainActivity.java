@@ -3,6 +3,7 @@ package com.example.justjava;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
     int quantity = 0;
+    boolean hasWhippedCream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +30,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the plus button is clicked.
-     */
-    public void increment(View view) {
-        quantity = quantity + 1;
-        displayQuantity(quantity);
-    }
-
-    /**
      * This's method calculate total price of order
      *
      * @return data type int, total price of order
@@ -43,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
     private int calculatePrice() {
         int pricePerCup = 5;
         return (quantity * pricePerCup);
+    }
+
+    public boolean checkAddToppings(boolean check){
+        CheckBox checkBox = findViewById(R.id.whipped_cream_check);
+        if(checkBox.isChecked()){
+            check = true;
+        }else {
+            check = false;
+        }
+        return check;
     }
 
     /**
@@ -54,8 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
     private String createOrderSummary(int totalPrice) {
         String name = "Captain America";
-        String orderMassage = "Name: " + name + "\nQuantity: " + quantity + "\nTotal: $" + totalPrice + "\nThank you!";
+        String orderMassage = "Name: " + name + "\nAdd whipped cream? " + checkAddToppings(hasWhippedCream) + "\nQuantity: " + quantity + "\nTotal: $" + totalPrice + "\nThank you!";
         return orderMassage;
+    }
+
+    /**
+     * This method is called when the plus button is clicked.
+     */
+    public void increment(View view) {
+        quantity = quantity + 1;
+        displayQuantity(quantity);
     }
 
     /**
