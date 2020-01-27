@@ -4,6 +4,7 @@ package com.example.justjava;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
     int quantity = 0;
-    boolean hasWhippedCream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,20 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        CheckBox checkWhippedCream = findViewById(R.id.whipped_cream_check);
+        boolean checkCream = checkWhippedCream.isChecked();
+
+        CheckBox checkChocolate = findViewById(R.id.chocolate_check);
+        boolean checkChoco = checkChocolate.isChecked();
+
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price));
+        displayMessage(createOrderSummary(price, checkCream, checkChoco));
+    }
+
+    public String addUserName (){
+        EditText userNameInput = findViewById(R.id.add_user_name);
+        String userName = String.valueOf(userNameInput.getText());
+        return userName;
     }
 
     /**
@@ -39,16 +51,6 @@ public class MainActivity extends AppCompatActivity {
         return (quantity * pricePerCup);
     }
 
-    public boolean checkAddToppings(boolean check){
-        CheckBox checkBox = findViewById(R.id.whipped_cream_check);
-        if(checkBox.isChecked()){
-            check = true;
-        }else {
-            check = false;
-        }
-        return check;
-    }
-
     /**
      * Give total order information to user
      *
@@ -56,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
      * @return String with information in order
      */
 
-    private String createOrderSummary(int totalPrice) {
-        String name = "Captain America";
-        String orderMassage = "Name: " + name + "\nAdd whipped cream? " + checkAddToppings(hasWhippedCream) + "\nQuantity: " + quantity + "\nTotal: $" + totalPrice + "\nThank you!";
+
+    private String createOrderSummary(int totalPrice, boolean addWhippedCream, boolean addChocolate) {
+        String orderMassage = "Name: " + addUserName() + "\nAdd whipped cream? " + addWhippedCream + "\nAdd chocolate? " + addChocolate + "\nQuantity: " + quantity + "\nTotal: $" + totalPrice + "\nThank you!";
         return orderMassage;
     }
 
