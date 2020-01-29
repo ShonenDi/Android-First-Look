@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
     int quantity = 2;
-    int pricePerCup = 5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,26 +27,23 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        CheckBox checkWhippedCream = findViewById(R.id.whipped_cream_check);
+               CheckBox checkWhippedCream = findViewById(R.id.whipped_cream_check);
         boolean checkCream = checkWhippedCream.isChecked();
 
         CheckBox checkChocolate = findViewById(R.id.chocolate_check);
         boolean checkChoco = checkChocolate.isChecked();
 
         if (checkCream && !checkChoco) {
-            pricePerCup = 5 + 1;
-            int price = calculatePrice();
+            int price = calculatePrice(5+1);
             displayMessage(createOrderSummary(price, checkCream, checkChoco));
         } else if (!checkCream && checkChoco) {
-            pricePerCup = 5 + 2;
-            int price = calculatePrice();
+            int price = calculatePrice(5+2);
             displayMessage(createOrderSummary(price, checkCream, checkChoco));
         } else if (checkChoco && checkCream) {
-            pricePerCup = 5 + 1 + 2;
-            int price = calculatePrice();
+            int price = calculatePrice(5+2+1);
             displayMessage(createOrderSummary(price, checkCream, checkChoco));
         } else {
-            int price = calculatePrice();
+            int price = calculatePrice(5);
             displayMessage(createOrderSummary(price, checkCream, checkChoco));
         }
     }
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return data type int, total price of order
      */
-    private int calculatePrice() {
+    private int calculatePrice(int pricePerCup) {
         return (quantity * pricePerCup);
     }
 
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public int increment(View view) {
         if (quantity == 100 && quantity >= 100) {
-            Toast handerdCupsToast = Toast.makeText(getApplicationContext(),"you can not order more than 100 coffee",Toast.LENGTH_LONG);
+            Toast handerdCupsToast = Toast.makeText(getApplicationContext(), "you can not order more than 100 coffee", Toast.LENGTH_LONG);
             handerdCupsToast.show();
             return quantity = 100;
         } else {
@@ -103,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public int decrement(View view) {
         if (quantity == 1 && quantity <= 1) {
-            Toast zeroCupsToast = Toast.makeText(getApplicationContext(),"you can not order less than 1 coffee",Toast.LENGTH_LONG);
+            Toast zeroCupsToast = Toast.makeText(getApplicationContext(), "you can not order less than 1 coffee", Toast.LENGTH_LONG);
             zeroCupsToast.show();
             return quantity = 1;
         } else {
