@@ -13,7 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
-    int quantity = 0;
+    int quantity = 2;
+    int pricePerCup = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,25 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkChocolate = findViewById(R.id.chocolate_check);
         boolean checkChoco = checkChocolate.isChecked();
 
-        int price = calculatePrice();
-        displayMessage(createOrderSummary(price, checkCream, checkChoco));
+        if (checkCream && !checkChoco) {
+            pricePerCup = 5 + 1;
+            int price = calculatePrice();
+            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+        } else if (!checkCream && checkChoco) {
+            pricePerCup = 5 + 2;
+            int price = calculatePrice();
+            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+        } else if (checkChoco && checkCream) {
+            pricePerCup = 5 + 1 + 2;
+            int price = calculatePrice();
+            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+        } else {
+            int price = calculatePrice();
+            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+        }
     }
 
-    public String addUserName (){
+    public String addUserName() {
         EditText userNameInput = findViewById(R.id.add_user_name);
         String userName = String.valueOf(userNameInput.getText());
         return userName;
@@ -47,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
      * @return data type int, total price of order
      */
     private int calculatePrice() {
-        int pricePerCup = 5;
         return (quantity * pricePerCup);
     }
 
@@ -66,18 +80,32 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method is called when the plus button is clicked.
+     *
+     * @return
      */
-    public void increment(View view) {
-        quantity = quantity + 1;
+    public int increment(View view) {
+        if (quantity == 100 && quantity >= 100) {
+            return quantity = 100;
+        } else {
+            quantity = quantity + 1;
+        }
         displayQuantity(quantity);
+        return quantity;
     }
 
     /**
      * This method is called when the minus button is clicked.
+     *
+     * @return
      */
-    public void decrement(View view) {
-        quantity = quantity - 1;
+    public int decrement(View view) {
+        if (quantity == 1 && quantity <= 1) {
+            return quantity = 1;
+        } else {
+            quantity = quantity - 1;
+        }
         displayQuantity(quantity);
+        return quantity;
     }
 
     /**
