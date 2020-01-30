@@ -1,6 +1,8 @@
 package com.example.justjava;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -27,26 +29,35 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-               CheckBox checkWhippedCream = findViewById(R.id.whipped_cream_check);
+        int price;
+        CheckBox checkWhippedCream = findViewById(R.id.whipped_cream_check);
         boolean checkCream = checkWhippedCream.isChecked();
 
         CheckBox checkChocolate = findViewById(R.id.chocolate_check);
         boolean checkChoco = checkChocolate.isChecked();
 
         if (checkCream && !checkChoco) {
-            int price = calculatePrice(5+1);
-            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+             price = calculatePrice(5 + 1);
+//            displayMessage(createOrderSummary(price, checkCream, checkChoco));
         } else if (!checkCream && checkChoco) {
-            int price = calculatePrice(5+2);
-            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+             price = calculatePrice(5 + 2);
+//            displayMessage(createOrderSummary(price, checkCream, checkChoco));
         } else if (checkChoco && checkCream) {
-            int price = calculatePrice(5+2+1);
-            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+             price = calculatePrice(5 + 2 + 1);
+//            displayMessage(createOrderSummary(price, checkCream, checkChoco));
         } else {
-            int price = calculatePrice(5);
-            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+             price = calculatePrice(5);
+//            displayMessage(createOrderSummary(price, checkCream, checkChoco));
+        }
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java order to " + addUserName());
+        intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(price,checkCream,checkChoco));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
+
 
     public String addUserName() {
         EditText userNameInput = findViewById(R.id.add_user_name);
