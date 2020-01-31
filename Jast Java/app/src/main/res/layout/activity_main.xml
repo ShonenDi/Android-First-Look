@@ -16,15 +16,14 @@
             android:id="@+id/add_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="@string/add_usr_name"
-            android:layout_marginBottom="16dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@string/toppings"
-            android:textAllCaps="true" />
+            android:hint="@string/add_usr_name"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/HeaderTextStyle"
+            android:layout_marginBottom="16dp"
+            android:text="@string/toppings" />
 
         <CheckBox
             android:id="@+id/whipped_cream_check"
@@ -45,11 +44,9 @@
             android:textSize="16sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderTextStyle"
             android:layout_marginBottom="16dp"
-            android:text="@string/quantity"
-            android:textAllCaps="true" />
+            android:text="@string/quantity" />
 
         <LinearLayout
             android:layout_width="match_parent"
