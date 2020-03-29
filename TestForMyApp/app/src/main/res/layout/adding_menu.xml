@@ -26,13 +26,6 @@
         android:hint="Food food calories per 100 g"
         android:textSize="16sp"></EditText>
 
-    <EditText
-        android:id="@+id/total_calories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Total food calories"
-        android:textSize="16sp"></EditText>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +39,7 @@
             android:text="Cancel" />
 
         <Button
-            android:id="@+id/add_btn"
+            android:id="@+id/addBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
