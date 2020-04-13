@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Food weight"
+        android:inputType="number|numberDecimal"
         android:textSize="16sp"></EditText>
 
     <EditText
@@ -24,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Food food calories per 100 g"
+        android:inputType="number|numberDecimal"
         android:textSize="16sp"></EditText>
 
     <LinearLayout

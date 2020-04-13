@@ -1,6 +1,8 @@
 package com.shonen.ukr.testformyapp;
 
-public class Dish {
+import java.io.Serializable;
+
+public class Dish implements Serializable {
     private String dishName;
     private double dishWeight;
     private double calories;
