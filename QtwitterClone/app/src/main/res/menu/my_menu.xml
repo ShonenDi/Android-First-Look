@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/logOutItem"
+        android:orderInCategory="100"
+        android:title="LogOut"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/sendTwitt"
+        android:icon="@drawable/ic_send_black_24dp"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="TODO" />
+</menu>
